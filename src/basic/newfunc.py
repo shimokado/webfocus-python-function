@@ -7,20 +7,49 @@
 import csv
 
 # a_numberとanother_numberの積をcsvoutに出力
+# 初心者向け解説:
+# この関数は、入力CSVファイル(csvin)を読み込み、2つの列(col1, col2)の値を掛け算して、
+# その結果を新しい列(seki)として出力CSVファイル(csvout)に書き込みます。
 def kakezan(csvin, csvout):
+    # ファイルの読み書き処理
+    # csvin: 読み込むファイルのパス
+    # csvout: 書き込むファイルのパス
+    # newline='': CSVファイルを扱う際は必ず指定します（改行コードの自動変換を防ぐため）
     with open(csvin,  'r', newline='') as file_in,\
          open(csvout, 'w', newline='') as file_out:
+        
+        # 出力するCSVのヘッダー（列名）を定義します
+        # col1, col2: 入力からそのままコピーする列
+        # seki: 計算結果を格納する新しい列
         fieldnames = ['col1', 'col2', 'seki']
+        
+        # CSV読み込みオブジェクトを作成
+        # quoting=csv.QUOTE_NONNUMERIC: 数値は数値として、それ以外は引用符付きで読み込みます
+        # これにより、数値列を自動的にfloat型として扱えます
         reader = csv.DictReader(file_in, quoting=csv.QUOTE_NONNUMERIC)
+        
+        # CSV書き込みオブジェクトを作成
+        # fieldnames: 出力する列の順序を指定
         writer = csv.DictWriter(file_out, quoting=csv.QUOTE_NONNUMERIC,
                                 fieldnames=fieldnames)
+        
+        # ヘッダー行（col1, col2, seki）をファイルに書き込みます
         writer.writeheader()
+        
+        # 入力ファイルの各行について繰り返し処理を行います
         for row in reader:
+            # 行ごとの処理
+            # row['col1']: その行のcol1の値（数値）
+            # row['col2']: その行のcol2の値（数値）
+            # 掛け算を行います
             ret1 = row['col1'] * row['col2']
+            
+            # 結果をファイルに書き込みます
+            # 辞書形式で列名と値を指定します
             writer.writerow({
-                'col1': row['col1'],
-                'col2': row['col2'],
-                'seki': ret1
+                'col1': row['col1'], # 入力の値をそのまま出力
+                'col2': row['col2'], # 入力の値をそのまま出力
+                'seki': ret1         # 計算結果を出力
             })
 
 # a_numberより大きく一番近い素数と、a_numberより小さい素数の数をcsvoutに出力
