@@ -1,0 +1,6 @@
+SEGNAME=INPUT_DATA, 
+  MODNAME=python/gsearch.py, 
+  FUNCTION=related, 
+  PYTHON_INPUT_SAMPL=python/sample_csv/gsearch_related_csvin.csv, 
+  INPUT_HEADER=YES, 
+  OUTPUT_HEADER=YES, $

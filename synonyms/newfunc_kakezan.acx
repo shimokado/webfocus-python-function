@@ -1,0 +1,6 @@
+SEGNAME=INPUT_DATA, 
+  MODNAME=python/newfunc.py, 
+  FUNCTION=kakezan, 
+  PYTHON_INPUT_SAMPL=python/sample.csv, 
+  INPUT_HEADER=YES, 
+  OUTPUT_HEADER=YES, $
