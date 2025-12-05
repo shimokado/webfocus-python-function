@@ -36,7 +36,19 @@ webfocus-python-function/
 - **[開発ガイドライン](docs/03_development_guidelines.md)** - 関数の書き方とベストプラクティス
 - **[シノニム作成](docs/04_synonym_creation.md)** - メタデータの作成方法
 
-### 2. サンプルコードを確認
+### 2. 環境セットアップ (推奨)
+
+付属のスクリプトを使用して、Python 3.9ベースの仮想環境(`venv`)を自動構築します。
+
+```powershell
+# セットアップスクリプトの実行
+.\tools\setup_env.ps1
+
+# 環境の有効化
+.\venv\Scripts\Activate.ps1
+```
+
+### 3. サンプルコードを確認
 
 `src/`ディレクトリ内のPython関数を参照:
 
@@ -44,7 +56,7 @@ webfocus-python-function/
 - **`src/basic/hensachi.py`** - ランク関数、ユニーク文字列抽出
 - **`src/external/xsearch.py`** - X(旧Twitter)検索ツイート取得
 
-### 3. ローカルテスト
+### 4. ローカルテスト
 
 Pythonファイルをローカルでテストするには:
 
@@ -59,7 +71,7 @@ python src/basic/newfunc.py
 npm test
 ```
 
-### 4. WebFOCUSにデプロイ
+### 5. WebFOCUSにデプロイ
 
 1. Python関数とシノニムを WebFOCUS サーバの`ibi_apps`ディレクトリに配置
 2. WebFOCUS管理コンソールでシノニムを作成/更新
