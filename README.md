@@ -1,139 +1,146 @@
-# WebFOCUS Python Function プロジェクト
+# WebFOCUS Python関数 開発テンプレート
 
-このリポジトリは、WebFOCUSでPython関数を開発・利用するための包括的なプロジェクトです。
+このリポジトリは、WebFOCUSでPython関数を開発する技術者のための**テンプレート、ガイド、ベストプラクティス集**です。
 
-## 📁 プロジェクト構成
+> [!NOTE]
+> このプロジェクトは**出発点として設計**されています。プロジェクト全体をコピーして、あなた独自のWebFOCUS Python関数開発に活用してください。
 
-```
-webfocus-python-function/
-├── src/                # Pythonソースコード
-│   ├── basic/         # 基本的な関数（算術演算、統計、文字列処理）
-│   └── external/      # 外部API連携（X検索、Webスクレイピング）
-│
-├── synonyms/          # WebFOCUSシノニムファイル (.mas, .acx, .ftm)
-│
-├── samples/           # サンプルCSVデータ
-│
-├── docs/              # 開発ガイドドキュメント
-│
-├── tests/             # テストコード
-│
-├── tools/             # 開発ツールとスクリプト
-│
-├── outputs/           # 出力ファイル保存先
-│
-└── README.md          # このファイル
-```
+## 🎯 このプロジェクトの目的
+
+- ✅ WebFOCUS Python関数開発の**実用的なテンプレート**を提供
+- ✅ 段階的に学べる**包括的なドキュメント**（12種類）
+- ✅ すぐに使える**サンプルコード**と**テストパターン**
+- ✅ 開発環境構築から本番デプロイまでの**ベストプラクティス**
+- ✅ pytestを使った**テスト駆動開発**の推奨
 
 ## 🚀 クイックスタート
 
-### 1. 開発ガイドを読む
-
-まずは[開発ガイド](docs/README.md)を参照して、WebFOCUS Python関数の基本を理解してください。
-
-- **[概要](docs/01_overview.md)** - WebFOCUS Python関数とは
-- **[環境構築](docs/02_environment_setup.md)** - 開発環境のセットアップ  
-- **[開発ガイドライン](docs/03_development_guidelines.md)** - 関数の書き方とベストプラクティス
-- **[シノニム作成](docs/04_synonym_creation.md)** - メタデータの作成方法
-
-### 2. 環境セットアップ (推奨)
-
-付属のスクリプトを使用して、Python 3.9ベースの仮想環境(`venv`)を自動構築します。
+### 1. プロジェクトをコピー
 
 ```powershell
-# セットアップスクリプトの実行
+git clone https://github.com/yourusername/webfocus-python-function.git
+cd webfocus-python-function
+```
+
+### 2. 開発環境のセットアップ
+
+```powershell
+# venv環境の自動構築（推奨）
 .\tools\setup_env.ps1
 
 # 環境の有効化
 .\venv\Scripts\Activate.ps1
 ```
 
-### 3. サンプルコードを確認
+### 3. ドキュメントで学ぶ
 
-`src/`ディレクトリ内のPython関数を参照:
+まずは[ドキュメント一覧](#-ドキュメント)から以下を読むことをお勧めします：
+1. [概要](docs/01_overview.md) - WebFOCUS Python関数とは
+2. [環境構築](docs/02_environment_setup.md) - 開発環境のセットアップ
+3. [サンプル解説](docs/07_sample_explanation.md) - kakezan関数の詳細解説
+4. [Pythonアダプタ設定](docs/09_python_adapter_configuration.md) - WebFOCUS側の設定（重要）
 
-- **`src/basic/newfunc.py`** - 四則演算、中央値、偏差値計算
-- **`src/basic/hensachi.py`** - ランク関数、ユニーク文字列抽出
-- **`src/external/xsearch.py`** - X(旧Twitter)検索ツイート取得
-
-### 4. ローカルテスト
-
-Pythonファイルをローカルでテストするには:
+### 4. サンプルコードを実行
 
 ```powershell
-# サンプルCSVを使ってテスト
+# サンプル関数のローカルテスト
 python src/basic/newfunc.py
+
+# pytestによるテスト実行
+pytest
 ```
 
-または、テストランナーを使用:
+### 5. 独自の関数を開発
 
-```powershell
-npm test
+`src/`ディレクトリにあるサンプルコードを参考に、独自のPython関数を作成してください。
+
+## 📁 プロジェクト構成
+
 ```
-
-### 5. WebFOCUSにデプロイ
-
-1. Python関数とシノニムを WebFOCUS サーバの`ibi_apps`ディレクトリに配置
-2. WebFOCUS管理コンソールでシノニムを作成/更新
-3. FEXファイルで PYTHON() 関数を呼び出し
-
-詳細は[ツールディレクトリ](tools/)のデプロイガイドを参照してください。
-
-## 📚 主な機能
-
-### 基本関数 (`src/basic/`)
-
-- **算術演算** - 四則演算
-- **統計関数** - 中央値、偏差値、ランク付け
-- **文字列処理** - ユニーク文字列抽出
-
-### 外部連携 (`src/external/`)
-
-- **X(旧Twitter)検索** - ツイート取得
-- **Webスクレイピング** - HTML解析
-
-## 🛠️ 必要な環境
-
-- **Python**: 3.6.x（WebFOCUS同梱版推奨）
-- **WebFOCUS**: Reporting Server 8.2以降
-- **必須パッケージ**:  numpy, scipy, scikit-learn, pandas
-- **追加パッケージ**: requests（外部API連携時）
+webfocus-python-function/
+├── src/                # Python関数のソースコード（ここを編集）
+│   ├── basic/         # 基本関数のサンプル
+│   └── external/      # 外部API連携のサンプル
+│
+├── synonyms/          # WebFOCUSシノニムファイル (.mas, .acx)
+├── samples/           # テスト用サンプルCSVデータ
+├── tests/             # pytestテストコード
+├── docs/              # 包括的な開発ドキュメント（12種類）
+├── tools/             # 開発支援スクリプト
+└── outputs/           # 出力ファイル保存先
+```
 
 ## 📖 ドキュメント
 
 すべてのドキュメントは[`docs/`](docs/)ディレクトリにあります:
 
+### 基礎編
 1. [概要と導入](docs/01_overview.md)
 2. [環境構築](docs/02_environment_setup.md)
 3. [開発ガイドライン](docs/03_development_guidelines.md)
 4. [シノニム作成](docs/04_synonym_creation.md)
 5. [ライブラリ管理](docs/05_library_management.md)
 6. [コードサンプル集](docs/06_code_samples.md)
+
+### 実践編
 7. [サンプル解説 (kakezan関数)](docs/07_sample_explanation.md)
 8. [テストガイド (pytest)](docs/08_testing_guide.md)
-9. [Pythonアダプタ設定](docs/09_python_adapter_configuration.md)
+9. [Pythonアダプタ設定](docs/09_python_adapter_configuration.md) ← **重要**
+
+### トラブル対応・参考
 10. [トラブルシューティング](docs/10_troubleshooting.md)
 11. [プロジェクト例](docs/11_project_examples.md)
 12. [Pythonアダプタリファレンス](docs/12_reference_python_adapter.md)
 
-## 🔧 開発フロー
+## 💡 サンプルコード
 
-```mermaid
-graph LR
-    A[Python関数作成] --> B[ローカルテスト]
-    B --> C[サンプルCSV準備]
-    C --> D[WebFOCUSに配置]
-    D --> E[シノニム作成]
-    E --> F[FEXで呼び出し]
-    F --> G{動作確認}
-    G -->|OK| H[完了]
-    G -->|NG| I[デバッグ]
-    I --> B
+### 基本関数 (`src/basic/`)
+
+| ファイル | 機能 |
+|---------|------|
+| `newfunc.py` | 四則演算、中央値、偏差値計算 |
+| `hensachi.py` | ランク付け、ユニーク文字列抽出 |
+| `sample.py` | 最小限のテンプレート |
+
+### 外部連携 (`src/external/`)
+
+| ファイル | 機能 |
+|---------|------|
+| `xsearch.py` | X(旧Twitter)検索・ツイート取得 |
+
+## 🧪 テスト
+
+### pytestによる自動テスト（推奨）
+
+```powershell
+# すべてのテストを実行
+pytest
+
+# 詳細な出力で実行
+pytest -v
 ```
 
-## 💡 使用例
+### 個別のPythonファイルをテスト
 
-### WebFOCUSからPython関数を呼び出す
+```powershell
+python src/basic/newfunc.py
+```
+
+詳細は[テストガイド](docs/08_testing_guide.md)を参照してください。
+
+## 🔧 WebFOCUSへのデプロイ
+
+### 1. Python関数とシノニムを配置
+
+```
+C:\ibi\srv93\ibi_apps\python\
+```
+
+### 2. WebFOCUS管理コンソールでアダプタ設定
+
+詳細な手順は[Pythonアダプタ設定ガイド](docs/09_python_adapter_configuration.md)を参照してください。
+
+### 3. FEXファイルで呼び出し
 
 ```focexec
 TABLE FILE DATASOURCE
@@ -141,30 +148,31 @@ COMPUTE RESULT/I9 = PYTHON(python/newfunc_kakezan, COL1, COL2, seki);
 END
 ```
 
-### ローカルでPython関数をテスト
+## 🛠️ 必要な環境
 
-```python
-# テスト用
-if __name__ == '__main__':
-    kakezan('samples/basic/sample.csv', 'outputs/test_output.csv')
-```
-
-または、pytestを使用:
-
-```powershell
-pytest
-```
+- **Python**: 3.9.x（WebFOCUS推奨）
+- **WebFOCUS**: Reporting Server 8.2以降
+- **必須パッケージ**: pandas, numpy, scipy, scikit-learn, matplotlib, seaborn, statsmodels, xgboost, openpyxl
+- **開発用**: pytest
 
 ## 📝 ライセンス
 
-このプロジェクトは開発者向けの参考資料として提供されています。
+このプロジェクトは[MITライセンス](LICENSE)の下で公開されています。
+自由に使用、変更、配布していただけます。
 
 ## 🔗 参考資料
 
 - [WebFOCUS公式ドキュメント](https://webfocusinfocenter.informationbuilders.com/wfappent/TL5s/TL_srv_adapters/source/python1_using.htm)
 - [Zenn記事 - WebFOCUSでPython関数を利用する](https://zenn.dev/shimokado/articles/2f8634331686b4)
-- [WebFOCUS Python Adapter Manual](docs/12_reference_python_adapter.md) - WebFOCUS Pythonアダプターの公式リファレンス（ローカル版）
+- [WebFOCUS Python Adapter Manual](docs/12_reference_python_adapter.md) - 公式リファレンス（ローカル版）
 
 ## 🤝 コントリビューション
 
-プロジェクトへのコントリビューションを歓迎します。issueやpull requestをお気軽に作成してください。
+プロジェクトへのコントリビューションを歓迎します！
+
+- バグ報告や機能提案は[Issues](https://github.com/yourusername/webfocus-python-function/issues)へ
+- プルリクエストもお待ちしています
+
+## 📮 サポート
+
+質問や問題があれば、[Issues](https://github.com/yourusername/webfocus-python-function/issues)で気軽にお問い合わせください。

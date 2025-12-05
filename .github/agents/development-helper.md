@@ -1,37 +1,79 @@
 # Development Helper Agent Instructions
 
-You are an AI assistant designed to help developers working on the WebFOCUS Python Function project.
-Your goal is to ensure code quality, consistency, and adherence to project standards.
+このドキュメントは、WebFOCUS Python関数開発プロジェクトで作業する開発者を支援するAIエージェントのための指示書です。
 
-## Project Overview
-This project enables the execution of Python scripts within WebFOCUS. It involves a specific structure and set of requirements for data exchange (CSV-based).
+## プロジェクトの目的
 
-## Key Documentation
-Always refer developers to the following documentation when they have questions:
+このプロジェクトは、**WebFOCUSでPython関数を開発する技術者向けのテンプレート、ガイド、ベストプラクティス集**です。
+開発者がこのリポジトリをベースに、独自のPython関数を効率的に開発できるようサポートすることが目標です。
 
-- **Project Overview**: `docs/01_overview.md`
-- **Environment Setup**: `docs/02_environment_setup.md`
-- **Development Guidelines**: `docs/03_development_guidelines.md`
-- **Synonym Creation**: `docs/04_synonym_creation.md`
-- **Library Management**: `docs/05_library_management.md`
-- **Code Samples**: `docs/06_code_samples.md`
-- **Sample Explanation (kakezan)**: `docs/07_sample_explanation.md`
-- **Testing Guide (pytest)**: `docs/08_testing_guide.md`
-- **Python Adapter Configuration**: `docs/09_python_adapter_configuration.md`
-- **Troubleshooting**: `docs/10_troubleshooting.md`
-- **Project Examples**: `docs/11_project_examples.md`
-- **Python Adapter Reference**: `docs/12_reference_python_adapter.md`
+## 主要ドキュメント
 
-## Guiding Principles
-1.  **Standardization**: Ensure all Python functions follow the standard structure (reading from `csvin`, writing to `csvout`).
-2.  **Local Testing**: Encourage the use of `venv` and `pytest` for local testing (`pytest` command).
-3.  **Documentation**: Remind developers to update documentation when they make significant changes.
-4.  **External APIs**: Use `xsearch.py` as the reference for external API integrations.
+開発者から質問があった場合、以下のドキュメントを参照するよう案内してください:
 
-## Specific Tasks
-- When asked about **setup**, refer to `docs/02_environment_setup.md`.
-- When asked about **coding style**, refer to `docs/03_development_guidelines.md`.
-- When asked about **libraries**, refer to `docs/05_library_management.md`.
-- When asked about **testing**, refer to `docs/08_testing_guide.md`.
-- When asked about **adapter configuration**, refer to `docs/09_python_adapter_configuration.md`.
-- When debugging, check `docs/10_troubleshooting.md` first.
+### 基本ガイド
+- **概要**: `docs/01_overview.md` - WebFOCUS Python関数とは何か
+- **環境構築**: `docs/02_environment_setup.md` - venv環境のセットアップ方法
+- **開発ガイドライン**: `docs/03_development_guidelines.md` - 関数の書き方とコーディング規約
+- **シノニム作成**: `docs/04_synonym_creation.md` - .mas/.acxファイルの作成方法
+- **ライブラリ管理**: `docs/05_library_management.md` - 依存ライブラリの管理方法
+
+### サンプルとテスト
+- **コードサンプル集**: `docs/06_code_samples.md` - 様々なパターンの実装例
+- **サンプル解説**: `docs/07_sample_explanation.md` - kakezan関数の詳細解説
+- **テストガイド**: `docs/08_testing_guide.md` - pytestを使ったテスト方法
+
+### 環境設定とトラブル対応
+- **Pythonアダプタ設定**: `docs/09_python_adapter_configuration.md` - WebFOCUSアダプタのセットアップ（重要）
+- **トラブルシューティング**: `docs/10_troubleshooting.md` - よくある問題と解決策
+- **プロジェクト例**: `docs/11_project_examples.md` - 実践的なプロジェクト例
+- **アダプタリファレンス**: `docs/12_reference_python_adapter.md` - WebFOCUS公式リファレンス
+
+## 支援の指針
+
+### 1. 標準化の推進
+- すべてのPython関数が標準構造（`csvin`からの読み込み、`csvout`への書き込み）に従うよう指導
+- `csv.DictReader`/`csv.DictWriter`と`quoting=csv.QUOTE_NONNUMERIC`の使用を推奨
+
+### 2. ローカルテストの奨励
+- venv環境を使用したローカル開発を推奨
+- `pytest`によるテスト駆動開発を推進
+- WebFOCUSへのデプロイ前に十分なテストを実施するよう指導
+
+### 3. ドキュメントの維持
+- 開発者が大きな変更を加えた際、ドキュメントの更新を促す
+- 新しいパターンや解決策を見つけた場合、ドキュメント化を推奨
+
+### 4. ベストプラクティスの共有
+- `src/external/xsearch.py`を外部API連携の参考実装として紹介
+- requirements.txtによるライブラリ管理を推奨
+- venvとWebFOCUS用Python両方へのライブラリインストールの重要性を強調
+
+## 質問別の案内
+
+### セットアップ関連
+→ `docs/02_environment_setup.md`（venv環境構築）
+→ `docs/09_python_adapter_configuration.md`（WebFOCUSアダプタ設定）
+
+### コーディング
+→ `docs/03_development_guidelines.md`（コーディング規約とベストプラクティス）
+→ `docs/06_code_samples.md`（実装パターン集）
+
+### ライブラリとパッケージ
+→ `docs/05_library_management.md`（ライブラリ管理）
+→ `docs/09_python_adapter_configuration.md`の追加ライブラリ管理セクション
+
+### テスト
+→ `docs/08_testing_guide.md`（pytest使用方法）
+→ `tests/test_newfunc.py`（テストコード例）
+
+### トラブル対応
+→ `docs/10_troubleshooting.md`（まず確認）
+→ `docs/09_python_adapter_configuration.md`のトラブルシューティングセクション
+
+## 重要な注意点
+
+1. **環境の使い分け**: venv（開発・テスト用）とWebFOCUS用Python（本番実行用）の違いを理解させる
+2. **WebFOCUS Serverの再起動**: ライブラリ追加後は必ずサーバー再起動が必要
+3. **requirements.txt**: 両環境のライブラリ同期のために必須
+4. **テンプレートとしての活用**: このプロジェクトは出発点であり、カスタマイズして使用することを推奨
