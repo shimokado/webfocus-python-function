@@ -109,7 +109,12 @@ npm test
 4. [シノニム作成](docs/04_synonym_creation.md)
 5. [ライブラリ管理](docs/05_library_management.md)
 6. [コードサンプル集](docs/06_code_samples.md)
-7. [トラブルシューティング](docs/07_troubleshooting.md)
+7. [サンプル解説 (kakezan関数)](docs/07_sample_explanation.md)
+8. [テストガイド (pytest)](docs/08_testing_guide.md)
+9. [Pythonアダプタ設定](docs/09_python_adapter_configuration.md)
+10. [トラブルシューティング](docs/10_troubleshooting.md)
+11. [プロジェクト例](docs/11_project_examples.md)
+12. [Pythonアダプタリファレンス](docs/12_reference_python_adapter.md)
 
 ## 🔧 開発フロー
 
@@ -144,6 +149,12 @@ if __name__ == '__main__':
     kakezan('samples/basic/sample.csv', 'outputs/test_output.csv')
 ```
 
+または、pytestを使用:
+
+```powershell
+pytest
+```
+
 ## 📝 ライセンス
 
 このプロジェクトは開発者向けの参考資料として提供されています。
@@ -152,7 +163,7 @@ if __name__ == '__main__':
 
 - [WebFOCUS公式ドキュメント](https://webfocusinfocenter.informationbuilders.com/wfappent/TL5s/TL_srv_adapters/source/python1_using.htm)
 - [Zenn記事 - WebFOCUSでPython関数を利用する](https://zenn.dev/shimokado/articles/2f8634331686b4)
-- [WebFOCUS Python Adapter Manual](docs/09_reference_python_adapter.md) - WebFOCUS Pythonアダプターの公式リファレンス（ローカル版）
+- [WebFOCUS Python Adapter Manual](docs/12_reference_python_adapter.md) - WebFOCUS Pythonアダプターの公式リファレンス（ローカル版）
 
 ## 🤝 コントリビューション
 

@@ -17,11 +17,15 @@ Please refer to the following documentation for specific guidelines:
 - **Overview**: `docs/01_overview.md`
 - **Environment Setup**: `docs/02_environment_setup.md`
 - **Development Guidelines**: `docs/03_development_guidelines.md`
-- **Library Management**: `docs/04_library_management.md`
-- **Troubleshooting**: `docs/05_troubleshooting.md`
+- **Synonym Creation**: `docs/04_synonym_creation.md`
+- **Library Management**: `docs/05_library_management.md`
 - **Code Samples**: `docs/06_code_samples.md`
-- **Project Examples**: `docs/08_project_examples.md`
-- **Python Adapter Reference**: `docs/09_reference_python_adapter.md` (Official Adapter Manual)
+- **Sample Explanation (kakezan)**: `docs/07_sample_explanation.md`
+- **Testing Guide (pytest)**: `docs/08_testing_guide.md`
+- **Python Adapter Configuration**: `docs/09_python_adapter_configuration.md`
+- **Troubleshooting**: `docs/10_troubleshooting.md`
+- **Project Examples**: `docs/11_project_examples.md`
+- **Python Adapter Reference**: `docs/12_reference_python_adapter.md` (Official Adapter Manual)
 
 ## Coding Standards
 - Follow the guidelines in `docs/03_development_guidelines.md`.
@@ -30,5 +34,5 @@ Please refer to the following documentation for specific guidelines:
 - Use `xsearch.py` (not `gsearch.py`) for external API examples.
 
 ## Testing
-- Use `npm test` or `node tests/test_runner.js` to run local tests.
-- Refer to `tests/README.md` for testing details.
+- Use `pytest` for local testing (see `docs/08_testing_guide.md`).
+- Tests are located in `tests/` directory.
