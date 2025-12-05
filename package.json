@@ -1,12 +1,31 @@
 {
-  "name": "python-scripts",
+  "name": "webfocus-python-function",
   "version": "1.0.0",
-  "description": "",
+  "description": "WebFOCUS Python関数開発のためのテンプレート、ガイド、ベストプラクティス集",
   "main": "index.js",
   "scripts": {
-    "test": "node test_runner.js"
+    "test": "pytest",
+    "test:verbose": "pytest -v",
+    "test:coverage": "pytest --cov=src --cov-report=html",
+    "install:venv": ".\\venv\\Scripts\\python.exe -m pip install -r requirements.txt",
+    "install:webfocus": "node scripts/install-webfocus.js",
+    "install:all": "npm run install:venv && npm run install:webfocus",
+    "list:venv": ".\\venv\\Scripts\\python.exe -m pip list",
+    "list:webfocus": "node scripts/list-webfocus.js",
+    "check:env": "node scripts/check-env.js",
+    "check:webfocus-path": "node scripts/check-webfocus-path.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "keywords": [
+    "webfocus",
+    "python",
+    "template",
+    "business-intelligence",
+    "data-processing"
+  ],
+  "author": "shimokado",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shimokado/webfocus-python-function.git"
+  }
 }
