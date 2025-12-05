@@ -43,24 +43,24 @@ if (!webfocusPythonPath) {
 
 const pythonExe = path.join(webfocusPythonPath, 'python.exe');
 
-console.log(`設定されているパス: ${webfocus PythonPath}`);
-console.log(`Python実行ファイル: ${ pythonExe }`);
+console.log(`設定されているパス: ${webfocusPythonPath}`);
+console.log(`Python実行ファイル: ${pythonExe}`);
 console.log('');
 
 if (fs.existsSync(pythonExe)) {
     console.log('✅ Python が見つかりました');
-    
+
     const { spawn } = require('child_process');
     const version = spawn(pythonExe, ['--version']);
-    
+
     version.stdout.on('data', (data) => {
-        console.log(`📌 ${ data.toString().trim() }`);
+        console.log(`📌 ${data.toString().trim()}`);
     });
-    
+
     version.stderr.on('data', (data) => {
-        console.log(`📌 ${ data.toString().trim() }`);
+        console.log(`📌 ${data.toString().trim()}`);
     });
-    
+
     version.on('close', (code) => {
         if (code === 0) {
             console.log('');
@@ -73,7 +73,7 @@ if (fs.existsSync(pythonExe)) {
     console.log('❌ Python が見つかりません');
     console.log('');
     console.log('project.config.json の webfocusPythonPath を確認してください:');
-    console.log(`現在の設定: ${ webfocusPythonPath }`);
-    console.log(`確認した場所: ${ pythonExe }`);
+    console.log(`現在の設定: ${webfocusPythonPath}`);
+    console.log(`確認した場所: ${pythonExe}`);
     process.exit(1);
 }
