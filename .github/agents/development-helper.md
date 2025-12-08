@@ -17,6 +17,7 @@
 - **開発ガイドライン**: `docs/03_development_guidelines.md` - 関数の書き方とコーディング規約
 - **シノニム作成**: `docs/04_synonym_creation.md` - .mas/.acxファイルの作成方法
 - **ライブラリ管理**: `docs/05_library_management.md` - 依存ライブラリの管理方法
+- **ライブラリ同期ガイド**: `docs/13_library_sync_guide.md` - 開発環境とサーバー環境のライブラリ同期ベストプラクティス
 
 ### サンプルとテスト
 - **コードサンプル集**: `docs/06_code_samples.md` - 様々なパターンの実装例

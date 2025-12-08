@@ -80,17 +80,18 @@ webfocus-python-function/
 3. [開発ガイドライン](docs/03_development_guidelines.md)
 4. [シノニム作成](docs/04_synonym_creation.md)
 5. [ライブラリ管理](docs/05_library_management.md)
-6. [コードサンプル集](docs/06_code_samples.md)
+6. [ライブラリ同期ガイド](docs/13_library_sync_guide.md) ← **重要**
+7. [コードサンプル集](docs/06_code_samples.md)
 
 ### 実践編
-7. [サンプル解説 (kakezan関数)](docs/07_sample_explanation.md)
-8. [テストガイド (pytest)](docs/08_testing_guide.md)
-9. [Pythonアダプタ設定](docs/09_python_adapter_configuration.md) ← **重要**
+8. [サンプル解説 (kakezan関数)](docs/07_sample_explanation.md)
+9. [テストガイド (pytest)](docs/08_testing_guide.md)
+10. [Pythonアダプタ設定](docs/09_python_adapter_configuration.md) ← **重要**
 
 ### トラブル対応・参考
-10. [トラブルシューティング](docs/10_troubleshooting.md)
-11. [プロジェクト例](docs/11_project_examples.md)
-12. [Pythonアダプタリファレンス](docs/12_reference_python_adapter.md)
+11. [トラブルシューティング](docs/10_troubleshooting.md)
+12. [プロジェクト例](docs/11_project_examples.md)
+13. [Pythonアダプタリファレンス](docs/12_reference_python_adapter.md)
 
 ## 💡 サンプルコード
 

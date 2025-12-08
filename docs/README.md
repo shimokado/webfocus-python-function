@@ -9,8 +9,9 @@ WebFOCUSでPython関数を開発・利用するための総合ガイドです。
 3. **[開発ガイドライン](03_development_guidelines.md)** - Python関数の開発規約とベストプラクティス
 4. **[シノニム作成](04_synonym_creation.md)** - シノニム（メタデータ）の作成手順
 5. **[ライブラリ管理](05_library_management.md)** - 追加ライブラリのインストールと管理
-6. **[サンプルコード](06_code_samples.md)** - 実用的なコード例集
-7. **[トラブルシューティング](07_troubleshooting.md)** - よくある問題と解決方法
+6. **[ライブラリ同期ガイド](13_library_sync_guide.md)** - 開発環境とサーバー環境のライブラリ同期ベストプラクティス
+7. **[サンプルコード](06_code_samples.md)** - 実用的なコード例集
+8. **[トラブルシューティング](07_troubleshooting.md)** - よくある問題と解決方法
 
 ## 🚀 クイックスタート
 
